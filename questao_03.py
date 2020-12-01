@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-/************************ TESTE DE PERFORMANCE 01 **************************
+/******************************* ASSESMENT *********************************
 *    Questao 03                                                            *
 *        Aluno           : Francisco Alves Camello Neto                    *
 *        Disciplina      : Fundamentos do Desenvolvimento Python           *
@@ -10,39 +10,36 @@
 """
 from validation import Validate
 
+
 class Questao_03():
     """
-    This function uses a FOR loop to calculate the factorial from a given number
-    by the user.
+    This function gets two numbers from user and calculates power
+    between numbers.
     """
 
     def __init__(self):
         """ Constructor """
-
-        self.input = 0
-        self.data = {}
-        self.num = 1
+        self.num = 0
 
     def init_class(self):
         """ This function receives the input data from users. """
+        number = Validate().validate_values(' Digite um número: ')
+        return number
 
-        self.input = Validate().validate_factorial(' Digite um número: ')
-
-    def process_data(self):
+    def process_data(self, a, b):
         """ This function process the input data from init_class. """
-
-        self.init_class()
-
-        for i in range(1, self.input + 1):
-            self.num *= i
+        self.num = a**b
 
     def print_result(self):
         """ This is a printer! It prints. """
 
         print('===' * 25, 'Questão 03'.center(75), '===' * 25, sep='\n')
-        self.process_data()
+        a = self.init_class()
+        b = self.init_class()
+        self.process_data(a, b)
         print(
-            '---' * 25, ' O fatorial de {} é {}!'.format(self.input, self.num),
+            '---' *
+            25, ' A potência de {0} por {1} é {2}!'.format(a, b, self.num),
             '---' * 25, 'Aluno: Francisco Camello'.rjust(75), sep="\n"
         )
 
