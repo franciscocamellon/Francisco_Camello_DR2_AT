@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-/************************ TESTE DE PERFORMANCE 01 **************************
+/******************************* ASSESMENT *********************************
 *    Questao 06                                                            *
 *        Aluno           : Francisco Alves Camello Neto                    *
 *        Disciplina      : Fundamentos do Desenvolvimento Python           *
@@ -8,7 +8,6 @@
 *        Nome do arquivo : questao_06.py                                   *
 ***************************************************************************/
 """
-import turtle
 from validation import Validate
 
 
@@ -17,50 +16,44 @@ class Questao_06():
 
     def __init__(self):
         """ Constructor. """
-        turtle.title('Questão 06')
-        self.squirtle = turtle.Turtle()
-        self.degree = ' Digite um ângulo: '
-        self.distance = ' Digite uma distância: '
-        self.data = {self.degree: 0, self.distance: 0}
+        self.input = []
+        self.list = []
+        self.tuple = ()
 
     def init_class(self):
         """ This function receives the input data from users. """
-
-        for k, v in self.data.items():
-            self.data[k] = Validate().validate_values(k, False)
+        finish = False
+        while not finish:
+            _input = (Validate().validate_values(
+                ' Digite um número ou 00 para sair: ', zero=True))
+            if _input == 00:
+                finish = True
+            else:
+                self.input.append(_input)
 
     def process_data(self):
         """ This function process the input data from init_class. """
-
+        even_index = []
         self.init_class()
-        _range = 360 // self.data.get(self.degree)
-        _distance = self.data.get(self.distance)
-
-        for i in range(_range):
-            _degree = i * self.data.get(self.degree)
-            self.squirtle.setheading(_degree)
-            self.squirtle.forward(_distance)
-            if _degree == 90 or _degree == 270:
-                self.squirtle.write('{}º'.format(
-                    _degree), False, align='center')
-            elif _degree in range(0, 75) or _degree in range(285, 360):
-                self.squirtle.write('{}º'.format(
-                    _degree), False, align='left')
-            else:
-                self.squirtle.write('{}º'.format(
-                    _degree), False, align='right')
-            self.squirtle.home()
-
-        print('---' * 25, ' Desenho finalizado com sucesso!', '---' *
-              25, 'Aluno: Francisco Camello'.rjust(75), sep="\n")
-
-        turtle.done()
+        for i in self.input:
+            if i % 2 != 0:
+                self.list.append(i)
+        for i in self.input:
+            if self.input.index(i) % 2 == 0:
+                print(self.input.index(i))
+                even_index.append(i)
+        self.tuple = tuple(even_index)
 
     def print_result(self):
         """ This is a printer! It prints. """
-
-        print('===' * 25, 'Questão 06'.center(75), '===' * 25, sep='\n')
+        print('===' * 25, 'Questão 04'.center(75), '===' * 25, sep='\n')
         self.process_data()
+        print(
+            '---' *
+            25, '{0}Lista de números ímpares {1}\n \
+            {0} Tupla com os números nas posições pares: {2}.'.format(' '*2, self.list, self.tuple),
+            '---' * 25, 'Aluno: Francisco Camello'.rjust(75), sep="\n"
+        )
 
 
 Questao_06().print_result()
