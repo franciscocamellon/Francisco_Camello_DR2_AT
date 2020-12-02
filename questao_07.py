@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-/************************ TESTE DE PERFORMANCE 01 **************************
+/******************************* ASSESMENT *********************************
 *    Questao 07                                                            *
 *        Aluno           : Francisco Alves Camello Neto                    *
 *        Disciplina      : Fundamentos do Desenvolvimento Python           *
@@ -8,61 +8,53 @@
 *        Nome do arquivo : questao_07.py                                   *
 ***************************************************************************/
 """
-import turtle
-from validation import Validate
+import pygame
+from random import randint
+
 
 class Questao_07():
-    """ This function draws squares side by side. """
+    """ This function draws a rectangle where the user clicks. """
 
     def __init__(self):
         """ Constructor. """
-        turtle.title('Questão 07')
-        self.squirtle = turtle.Turtle()
-        self.squirtle.penup()
-        self.position = 0
-        self.distance = ' Digite o tamanho do lado do quadrado: '
-        self.quantity = ' Digite a quantidade de quadrados a serem desenhados: '
-        self.data = {self.quantity: 0, self.distance: 4}
+        pygame.init()
+        self.DISPLAY_NAME = pygame.display.set_caption('Questão 07')
+        self.SCREEN_WIDTH = 400
+        self.SCREEN_HEIGHT = 400
+        self.SCREEN = pygame.display.set_mode(
+            (self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
+        self.FPS = 60
+        self.FPSCLOCK = pygame.time.Clock()
+        self.color = (0, 0, 0)
+        self.position = (0, 0)
+        self.finish = False
 
-    def init_class(self):
-        """ This function receives the input data from users. """
+    def draw_square(self, surface, color, position):
+        """ This functions draws a square """
+        rect = pygame.Rect(position, (50, 50))
+        pygame.draw.rect(surface, color, rect)
 
-        for k, v in self.data.items():
-            self.data[k] = Validate().validate_values(k, False)
+    def init_game(self):
+        """ This function starts the game. """
+        while not self.finish:
+            self.color = (randint(0, 255), randint(0, 255), randint(0, 255))
+            self.position = (randint(5, 395), randint(5, 395))
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.finish = True
 
-        self.position = self.data.get(self.distance) * (-2)
+                elif event.type == pygame.MOUSEBUTTONUP:
+                    if event.button == 3:
+                        self.draw_square(self.SCREEN, self.color, self.position)
+                elif event.type == pygame.KEYUP:
+                    if event.key == pygame.K_SPACE:
+                        self.draw_square(self.SCREEN, self.color, self.position)
 
-    def process_data(self):
-        """ This function process the input data from init_class. """
+            pygame.display.update()
 
-        self.init_class()
-        self.squirtle.setpos(self.position, 0)
+            self.FPSCLOCK.tick(self.FPS)
 
-        _range = self.data.get(self.quantity)
-        _distance = self.data.get(self.distance)
-
-        for i in range(_range):
-            self.squirtle.pendown()
-            for sides in range(1, 5):
-                self.squirtle.forward(_distance)
-                self.squirtle.setheading(sides * 90)
-            self.squirtle.penup()
-            self.squirtle.setheading(0)
-            if i < (_range - 1):
-                self.squirtle.forward(_distance)
-                self.squirtle.pendown()
-            else:
-                self.squirtle.setpos(self.position, 0)
-
-    def print_result(self):
-        """ This is a printer! It prints. """
-
-        print('===' * 25, 'Questão 07'.center(75), '===' * 25, sep='\n')
-        self.process_data()
-        print('---' * 25, ' Desenho finalizado com sucesso!', '---' *
-              25, 'Aluno: Francisco Camello'.rjust(75), sep="\n")
-
-        turtle.done()
+        pygame.display.quit()
 
 
-Questao_07().print_result()
+Questao_07().init_game()

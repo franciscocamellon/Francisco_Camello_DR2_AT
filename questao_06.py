@@ -40,7 +40,6 @@ class Questao_06():
                 self.list.append(i)
         for i in self.input:
             if self.input.index(i) % 2 == 0:
-                print(self.input.index(i))
                 even_index.append(i)
         self.tuple = tuple(even_index)
 
