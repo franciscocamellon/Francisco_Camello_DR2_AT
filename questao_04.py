@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-/************************ TESTE DE PERFORMANCE 01 **************************
+/******************************* ASSESMENT *********************************
 *    Questao 04                                                            *
 *        Aluno           : Francisco Alves Camello Neto                    *
 *        Disciplina      : Fundamentos do Desenvolvimento Python           *
@@ -10,41 +10,37 @@
 """
 from validation import Validate
 
+
 class Questao_04():
     """
-    This function uses a WHILE loop to calculate the factorial from a given number
-    by the user.
+    This function takes from the user a vector and prints your reverse order.
     """
 
     def __init__(self):
         """ Constructor. """
-
-        self.input = int
-        self.count = 2
-        self.num = 1
+        self.input = []
+        self.list = []
 
     def init_class(self):
         """ This function receives the input data from users. """
-
-        self.input = Validate().validate_factorial(' Digite um número: ')
+        while len(self.input) < 5:
+            self.input.append(Validate().validate_values(
+                ' Digite um número: ', zero=True))
 
     def process_data(self):
         """ This function process the input data from init_class. """
-
         self.init_class()
-
-        while self.count <= self.input:
-            self.num *= self.count
-            self.count += 1
+        self.list = self.input.copy()
+        self.list.reverse()
 
     def print_result(self):
         """ This is a printer! It prints. """
-
         print('===' * 25, 'Questão 04'.center(75), '===' * 25, sep='\n')
         self.process_data()
         print(
             '---' *
-            25, ' O fatorial de {}! é: {}.'.format(self.input, self.num),
+            25, '{0}A ordem inversa do vetor {1} é: {2}.'.format(
+                ' '*2, self.input, self.list),
             '---' * 25, 'Aluno: Francisco Camello'.rjust(75), sep="\n"
         )
 
