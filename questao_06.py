@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-/******************************* ASSESMENT *********************************
+/******************************* ASSESSMENT *********************************
 *    Questao 06                                                            *
 *        Aluno           : Francisco Alves Camello Neto                    *
 *        Disciplina      : Fundamentos do Desenvolvimento Python           *
