@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-/************************ TESTE DE PERFORMANCE 01 **************************
+/******************************* ASSESSMENT *********************************
 *    Questao 08                                                            *
 *        Aluno           : Francisco Alves Camello Neto                    *
 *        Disciplina      : Fundamentos do Desenvolvimento Python           *
@@ -8,62 +8,80 @@
 *        Nome do arquivo : questao_08.py                                   *
 ***************************************************************************/
 """
-from validation import Validate
+import pygame
+from random import randint
+from components import Rectangle
 
 
 class Questao_08():
-    """ Docstring """
+    """ This function draws a rectangle when the user clicks on button. """
 
     def __init__(self):
         """ Constructor. """
+        pygame.init()
+        self.DISPLAY_NAME = pygame.display.set_caption('Questão 08')
+        self.SCREEN_WIDTH = 400
+        self.SCREEN_HEIGHT = 400
+        self.SCREEN = pygame.display.set_mode(
+            (self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
+        self.FPS = 60
+        self.FPSCLOCK = pygame.time.Clock()
+        self.FONTSIZE = 16
+        self.FONT = pygame.font.SysFont('Arial', self.FONTSIZE)
+        self.color = (0, 0, 0)
+        self.position = (0, 0)
+        self.finish = False
 
-        self.data = []
-        self.title = ' Digite o {}º lado do triângulo: '
-        self.type = ('do tipo Equilátero',
-                     'do tipo Escaleno', 'do tipo Isóceles')
-        self.validate = (' Esses valores formam um triângulo',
-                         ' Esses valores não formam um triângulo')
-        self.result = []
+    def draw_square(self, surface, color, position):
+        """ This functions draws a square """
+        rect = Rectangle(self.color, self.SCREEN_WIDTH,
+                         self.SCREEN_HEIGHT)
+        return pygame.draw.rect(surface, color, rect)
 
-    def init_class(self):
-        """ This function receives the input data from users. """
+    def draw_button(self, surface, color):
+        """ This functions draws a button """
+        # text = self.FONT.render('Clique', True, (255,255,255))
+        # surface.blit(text, (50, 50))
 
-        _data = []
+        rect = pygame.Rect(175, 175, 50, 50)
 
-        for i in range(3):
-            _data.append(Validate().validate_values(
-                self.title.format(i + 1), False))
+        button = pygame.draw.rect(
+            surface, (255, 255, 255), rect, border_radius=25)
+        return button
 
-        self.data.append((_data[0], _data[1] + _data[2]))
-        self.data.append((_data[1], _data[0] + _data[2]))
-        self.data.append((_data[2], _data[0] + _data[1]))
-        tuple(self.data)
-        return _data
+    def init_game(self):
+        """ This function starts the game. """
+        button = self.draw_button(self.SCREEN, self.color)
+        rect_list = []
 
-    def process_data(self):
-        """ This function process the input data from init_class. """
+        while not self.finish:
+            self.color = (randint(0, 255), randint(0, 255), randint(0, 255))
+            self.position = (randint(5, 395), randint(5, 395))
 
-        self.init_class()
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    self.finish = True
 
-        if self.data[0][0] < self.data[0][1] and self.data[1][0] < self.data[1][1] and self.data[2][0] < self.data[2][1]:
-            self.result.append(self.validate[0])
-            if self.data[0][0] == self.data[1][0] and self.data[0][0] == self.data[2][0]:
-                self.result.append(self.type[0])
-            elif self.data[0][0] == self.data[1][0] and self.data[0][0] != self.data[2][0] or self.data[0][0] != self.data[1][0] and self.data[0][0] == self.data[2][0]:
-                self.result.append(self.type[2])
-            elif self.data[0][0] != self.data[1][0] and self.data[0][0] != self.data[2][0] and self.data[1][0] != self.data[2][0]:
-                self.result.append(self.type[1])
-        else:
-            self.result.append(self.validate[1])
-            self.result.append('')
+                if event.type == pygame.MOUSEBUTTONUP and event.button == 1:
+                    mouse_pos = event.pos
+                    rect = self.draw_square(
+                        self.SCREEN, self.color, self.position)
 
-    def print_result(self):
-        """ This is a printer! It prints. """
-
-        print('===' * 25, 'Questão 08'.center(75), '===' * 25, sep='\n')
-        self.process_data()
-        print('---' * 25, '{0} {1}'.format(self.result[0], self.result[1]),
-              '---' * 25, 'Aluno: Francisco Camello'.rjust(75), sep="\n")
+                    if button.collidepoint(mouse_pos):
+                        for rect in rect_list:
+                            if rect.collidepoint(button):
+                                rect_list.remove(rect)
+                            else:
+                                rect = self.draw_square(
+                                    self.SCREEN, self.color, self.position)
+                                rect_list.append(rect)
 
 
-Questao_08().print_result()
+            pygame.display.update()
+
+            self.FPSCLOCK.tick(self.FPS)
+
+        pygame.display.quit()
+
+
+Questao_08().init_game()
