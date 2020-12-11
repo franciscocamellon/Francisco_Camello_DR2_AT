@@ -58,7 +58,8 @@ class Questao_10():
         self.process_data()
         print('---' * 25,
               'O país com mais medalhas de ouro no século 21 nas modalidades Skiing,',
-              'Curling, Skating, Ice Hockey foi: {}.'.format(self.total_medal),
+              'Curling, Skating, Ice Hockey foi a Noruega com {} medalhas.'.format(
+                  self.total_medal['NOR']),
               '---' * 25, 'Aluno: Francisco Camello'.rjust(75), sep="\n")
 
 
