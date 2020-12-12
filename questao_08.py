@@ -28,60 +28,69 @@ class Questao_08():
         self.FPSCLOCK = pygame.time.Clock()
         self.FONTSIZE = 16
         self.FONT = pygame.font.SysFont('Arial', self.FONTSIZE)
-        self.color = (0, 0, 0)
+        self.RECT = pygame.Rect(175, 175, 50, 50)
+        self.BUTTON = pygame.draw.rect(
+            self.SCREEN, (255, 255, 255), self.RECT, border_radius=25)
+        self.rect_list = []
+        self.color = (randint(0, 255), randint(0, 255), randint(0, 255))
+        self.BLACK = (0, 0, 0)
         self.position = (0, 0)
         self.finish = False
 
     def draw_square(self, surface, color, position):
         """ This functions draws a square """
-        rect = Rectangle(self.color, self.SCREEN_WIDTH,
+        rect = Rectangle(color, self.SCREEN_WIDTH,
                          self.SCREEN_HEIGHT)
         return pygame.draw.rect(surface, color, rect)
 
     def draw_button(self, surface, color):
         """ This functions draws a button """
-        # text = self.FONT.render('Clique', True, (255,255,255))
-        # surface.blit(text, (50, 50))
+        button = self.BUTTON
+        text = self.FONT.render('Clique', True, (0, 0, 0))
+        text_rect = text.get_rect(center=button.center)
+        surface.blit(text, text_rect)
 
-        rect = pygame.Rect(175, 175, 50, 50)
+    def handle_event(self, event):
+        """ This functions handles a mouse click. """
+        if event.button == 1:
+            position = pygame.mouse.get_pos()
 
-        button = pygame.draw.rect(
-            surface, (255, 255, 255), rect, border_radius=25)
-        return button
+            if self.BUTTON.collidepoint(position):
+                rect = self.draw_square(self.SCREEN, self.color, self.position)
+                self.rect_list.append(rect)
+                self.collision(rect)
+
+    def collision(self, rect_b):
+        """ This functions checks the collision. """
+        for rect_a in self.rect_list:
+            if rect_a is not rect_b and rect_a.colliderect(rect_b):
+                self.rect_list.remove(rect_a)
+                if rect_b in self.rect_list:
+                    self.rect_list.remove(rect_b)
 
     def init_game(self):
         """ This function starts the game. """
-        button = self.draw_button(self.SCREEN, self.color)
-        rect_list = []
+        self.color = (randint(0, 255), randint(0, 255), randint(0, 255))
+        self.position = (randint(5, 395), randint(5, 395))
+        self.draw_button(self.SCREEN, (255, 255, 255))
 
         while not self.finish:
-            self.color = (randint(0, 255), randint(0, 255), randint(0, 255))
-            self.position = (randint(5, 395), randint(5, 395))
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.finish = True
 
-                if event.type == pygame.MOUSEBUTTONUP and event.button == 1:
-                    mouse_pos = event.pos
-                    rect = self.draw_square(
-                        self.SCREEN, self.color, self.position)
+                if event.type == pygame.MOUSEBUTTONUP:
+                    self.handle_event(event)
 
-                    if button.collidepoint(mouse_pos):
-                        for rect in rect_list:
-                            if rect.collidepoint(button):
-                                rect_list.remove(rect)
-                            else:
-                                rect = self.draw_square(
-                                    self.SCREEN, self.color, self.position)
-                                rect_list.append(rect)
-
+            for rect in self.rect_list:
+                pygame.draw.rect(self.SCREEN, self.color, rect)
 
             pygame.display.update()
 
             self.FPSCLOCK.tick(self.FPS)
 
-        pygame.display.quit()
+        pygame.display.flip()
 
 
 Questao_08().init_game()
