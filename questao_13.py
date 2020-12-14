@@ -15,7 +15,7 @@ from bs4 import BeautifulSoup as bs
 
 
 class Questao_13():
-    """ This function draws squares side by side. """
+    """ This function searches for specific words. """
 
     def __init__(self):
         """ Constructor. """
@@ -51,8 +51,8 @@ class Questao_13():
         print('---' * 25,
               '{}Existem {} palavras no conteúdo sobre as PyLadies, das quais\n {} aparecem uma única vez, enquanto que a palavra ladies é\n repetida {} vezes.\n'.format(
                   ' ', self.words, len(self.only_once), self.ladies),
-              'Esta é a lista das palavras que ocorrem uma única vez no conteúdo:', sep="\n")
-        for word in self.words_list:
+              '{}Esta é a lista das palavras que ocorrem uma única vez no conteúdo:'.format(' '), sep="\n")
+        for word in self.only_once:
             print(word)
 
         print('---' * 25, 'Aluno: Francisco Camello'.rjust(75), sep="\n")
