@@ -9,8 +9,7 @@
 ***************************************************************************/
 """
 import pygame
-from random import randint
-from components import Rectangle
+import random as rd
 
 
 class Questao_08():
@@ -19,36 +18,28 @@ class Questao_08():
     def __init__(self):
         """ Constructor. """
         pygame.init()
+        pygame.font.init()
         self.DISPLAY_NAME = pygame.display.set_caption('Questão 08')
-        self.SCREEN_WIDTH = 400
-        self.SCREEN_HEIGHT = 400
-        self.SCREEN = pygame.display.set_mode(
-            (self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
+        self.SCREEN = pygame.display.set_mode((400, 400))
         self.FPS = 60
         self.FPSCLOCK = pygame.time.Clock()
-        self.FONTSIZE = 16
-        self.FONT = pygame.font.SysFont('Arial', self.FONTSIZE)
-        self.RECT = pygame.Rect(175, 175, 50, 50)
-        self.BUTTON = pygame.draw.rect(
-            self.SCREEN, (255, 255, 255), self.RECT, border_radius=25)
+        self.FONT = pygame.font.SysFont('Arial', 16)
+        self.BUTTON = pygame.Rect(175, 50, 50, 50)
         self.rect_list = []
-        self.color = (randint(0, 255), randint(0, 255), randint(0, 255))
-        self.BLACK = (0, 0, 0)
-        self.position = (0, 0)
         self.finish = False
 
-    def draw_square(self, surface, color, position):
+    def draw_square(self):
         """ This functions draws a square """
-        rect = Rectangle(color, self.SCREEN_WIDTH,
-                         self.SCREEN_HEIGHT)
-        return pygame.draw.rect(surface, color, rect)
+        x = rd.randint(25, 400 - 25)
+        y = rd.randint(25, 400 - 25)
+        return pygame.Rect(x, y, 25, 25)
 
-    def draw_button(self, surface, color):
+    def draw_button(self):
         """ This functions draws a button """
-        button = self.BUTTON
-        text = self.FONT.render('Clique', True, (0, 0, 0))
-        text_rect = text.get_rect(center=button.center)
-        surface.blit(text, text_rect)
+        pygame.draw.ellipse(self.SCREEN, (255, 255, 255), self.BUTTON)
+        text = self.FONT.render('Clique', False, (0, 0, 0))
+        text_rect = text.get_rect(center=self.BUTTON.center)
+        self.SCREEN.blit(text, text_rect)
 
     def handle_event(self, event):
         """ This functions handles a mouse click. """
@@ -56,7 +47,7 @@ class Questao_08():
             position = pygame.mouse.get_pos()
 
             if self.BUTTON.collidepoint(position):
-                rect = self.draw_square(self.SCREEN, self.color, self.position)
+                rect = self.draw_square()
                 self.rect_list.append(rect)
                 self.collision(rect)
 
@@ -70,9 +61,8 @@ class Questao_08():
 
     def init_game(self):
         """ This function starts the game. """
-        self.color = (randint(0, 255), randint(0, 255), randint(0, 255))
-        self.position = (randint(5, 395), randint(5, 395))
-        self.draw_button(self.SCREEN, (255, 255, 255))
+        # self.color = (randint(0, 255), randint(0, 255), randint(0, 255))
+        # self.position = (randint(5, 395), randint(5, 395))
 
         while not self.finish:
 
@@ -83,14 +73,18 @@ class Questao_08():
                 if event.type == pygame.MOUSEBUTTONUP:
                     self.handle_event(event)
 
-            for rect in self.rect_list:
-                pygame.draw.rect(self.SCREEN, self.color, rect)
+            self.SCREEN.fill((0, 0, 0))
 
-            pygame.display.update()
+            self.draw_button()
+
+            for rect in self.rect_list:
+                pygame.draw.rect(self.SCREEN, (255, 197, 1), rect)
+
+            pygame.display.flip()
 
             self.FPSCLOCK.tick(self.FPS)
 
-        pygame.display.flip()
+        pygame.display.quit()
 
 
 Questao_08().init_game()
