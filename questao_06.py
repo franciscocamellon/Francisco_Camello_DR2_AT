@@ -24,12 +24,11 @@ class Questao_06():
         """ This function receives the input data from users. """
         finish = False
         while not finish:
-            _input = (Validate().validate_values(
-                ' Digite um número ou 00 para sair: ', zero=True))
-            if _input == 00:
+            _input = input(' Digite um número ou fim para sair: ')
+            if _input == 'fim':
                 finish = True
             else:
-                self.input.append(_input)
+                self.input.append(int(_input))
 
     def process_data(self):
         """ This function process the input data from init_class. """
@@ -48,9 +47,8 @@ class Questao_06():
         print('===' * 25, 'Questão 04'.center(75), '===' * 25, sep='\n')
         self.process_data()
         print(
-            '---' *
-            25, '{0}Lista de números ímpares {1}\n \
-            {0} Tupla com os números nas posições pares: {2}.'.format(' '*2, self.list, self.tuple),
+            '---' * 25, '{0}Lista de números ímpares {1}\n{0}Tupla com os números nas posições pares: {2}.'.format(
+                ' '*2, self.list, self.tuple),
             '---' * 25, 'Aluno: Francisco Camello'.rjust(75), sep="\n"
         )
 

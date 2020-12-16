@@ -19,27 +19,28 @@ class Questao_03():
 
     def __init__(self):
         """ Constructor """
-        self.num = 0
+        self.power = 0
+        self.components = {' Digite a base: ': 0, ' Digite o expoente: ': 0}
 
     def init_class(self):
         """ This function receives the input data from users. """
-        number = Validate().validate_values(' Digite um número: ')
-        return number
+        for k in self.components.keys():
+            self.components[k] = Validate().validate_values(k)
 
-    def process_data(self, a, b):
+    def process_data(self):
         """ This function process the input data from init_class. """
-        self.num = a**b
+        self.init_class()
+        self.power = self.components[' Digite a base: ']**self.components[' Digite o expoente: ']
 
     def print_result(self):
         """ This is a printer! It prints. """
 
         print('===' * 25, 'Questão 03'.center(75), '===' * 25, sep='\n')
-        a = self.init_class()
-        b = self.init_class()
-        self.process_data(a, b)
+        self.process_data()
         print(
             '---' *
-            25, ' A potência de {0} por {1} é {2}!'.format(a, b, self.num),
+            25, ' A potência de {0} elevado a {1} é {2}!'.format(
+                self.components[' Digite a base: '], self.components[' Digite o expoente: '], self.power),
             '---' * 25, 'Aluno: Francisco Camello'.rjust(75), sep="\n"
         )
 

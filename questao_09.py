@@ -25,6 +25,8 @@ class Questao_09():
         self.FPSCLOCK = pygame.time.Clock()
         self.FONT = pygame.font.SysFont('Arial', 16)
         self.BUTTON = pygame.Rect(175, 50, 50, 50)
+        self.SPECIAL_GREEN = (0, 172, 176)
+        self.BLACK = (0, 0, 0)
         self.rect_list = []
         self.finish = False
 
@@ -95,8 +97,6 @@ class Questao_09():
 
     def init_game(self):
         """ This function starts the game. """
-        # self.color = (randint(0, 255), randint(0, 255), randint(0, 255))
-        # self.position = (randint(5, 395), randint(5, 395))
 
         while not self.finish:
 
@@ -107,16 +107,13 @@ class Questao_09():
                 if event.type == pygame.MOUSEBUTTONUP:
                     self.handle_event(event)
 
-                # if event.type == pygame.KEYDOWN:
-                #     self.move_keys()
-
-            self.SCREEN.fill((0, 0, 0))
+            self.SCREEN.fill(self.BLACK)
 
             self.draw_button()
             self.move_keys()
 
             for rect in self.rect_list:
-                pygame.draw.rect(self.SCREEN, (255, 197, 1), rect)
+                pygame.draw.rect(self.SCREEN, self.SPECIAL_GREEN, rect)
 
             pygame.display.flip()
 
