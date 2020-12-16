@@ -41,6 +41,40 @@ class Questao_09():
         text_rect = text.get_rect(center=self.BUTTON.center)
         self.SCREEN.blit(text, text_rect)
 
+    def move_keys(self):
+        """ This functions moves a rectangle in place """
+        key = pygame.key.get_pressed()
+
+        if self.BUTTON.x > 350:
+            self.BUTTON.x = 12.5
+            if key[pygame.K_d]:
+                self.BUTTON.x += 5
+        elif self.BUTTON.x < 12.5:
+            self.BUTTON.x = 350
+            if key[pygame.K_a]:
+                self.BUTTON.x -= 5
+        elif self.BUTTON.y > 350:
+            self.BUTTON.y = 12.5
+            if key[pygame.K_w]:
+                self.BUTTON.x += 5
+        elif self.BUTTON.y < 12.5:
+            self.BUTTON.y = 350
+            if key[pygame.K_s]:
+                self.BUTTON.x -= 5
+        else:
+            if key[pygame.K_a]:
+                self.BUTTON.x -= 5
+            if key[pygame.K_d]:
+                self.BUTTON.x += 5
+            if key[pygame.K_w]:
+                self.BUTTON.y -= 5
+            if key[pygame.K_s]:
+                self.BUTTON.y += 5
+
+        for rec in self.rect_list:
+            if rec.colliderect(self.BUTTON):
+                self.rect_list.remove(rec)
+
     def handle_event(self, event):
         """ This functions handles a mouse click. """
         if event.button == 1:
@@ -73,9 +107,13 @@ class Questao_09():
                 if event.type == pygame.MOUSEBUTTONUP:
                     self.handle_event(event)
 
+                # if event.type == pygame.KEYDOWN:
+                #     self.move_keys()
+
             self.SCREEN.fill((0, 0, 0))
 
             self.draw_button()
+            self.move_keys()
 
             for rect in self.rect_list:
                 pygame.draw.rect(self.SCREEN, (255, 197, 1), rect)
