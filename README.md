@@ -45,39 +45,38 @@ Exemplo: se a entrada for [4, 3, 5, 1, 2], o resultado deve ser [2, 1, 5, 3, 4].
 [Resolução](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/questao_01.py)
 
 
-#### 10. Obtenha, usando requests ou urllib, dentro de seu programa em Python, o csv do link:
-[Winter Olympics Medals](https://sites.google.com/site/dr2fundamentospython/arquivos/Winter_Olympics_Medals.csv),
-e:
-    1. Dentre os seguintes países nórdicos: Suécia, Dinamarca e Noruega, verifique: No século XXI (a partir de 2001), qual foi o maior medalhista de ouro, considerando apenas as seguintes modalidades:
-        * Curling
-        * Patinação no gelo (skating)
-        * Esqui (skiing)
-        * Hóquei sobre o gelo (ice hockey)
-    1. Para cada esporte, considere todas as modalidades, tanto no masculino quanto no feminino. Sua resposta deve imprimir um relatório mostrando o total de medalhas de cada um dos países e em que esporte, ano, cidade e gênero (masculino ou feminino) cada medalha foi obtida.
+#### 10. Obtenha, usando requests ou urllib, dentro de seu programa em Python, o csv do link [Winter Olympics Medals](https://sites.google.com/site/dr2fundamentospython/arquivos/Winter_Olympics_Medals.csv), e:
+1. Dentre os seguintes países nórdicos: Suécia, Dinamarca e Noruega, verifique: No século XXI (a partir de 2001), qual foi o maior medalhista de ouro, considerando apenas as seguintes modalidades:
+    * Curling
+    * Patinação no gelo (skating)
+    * Esqui (skiing)
+    * Hóquei sobre o gelo (ice hockey)
+1. Para cada esporte, considere todas as modalidades, tanto no masculino quanto no feminino. Sua resposta deve imprimir um relatório mostrando o total de medalhas de cada um dos países e em que esporte, ano, cidade e gênero (masculino ou feminino) cada medalha foi obtida.
 
 [Resolução](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/questao_01.py)
 
 
 #### 11. Obtenha, usando requests ou urllib, dentro de seu programa em Python, o csv do link: [Video Game Sales](https://sites.google.com/site/dr2fundamentospython/arquivos/Video_Games_Sales_as_at_22_Dec_2016.csv).
 Obtenha, dentre os jogos do gênero de ação (Action), tiro (Shooter) e plataforma (Platform):
-    1. Quais são as três marcas que mais publicaram jogos dos três gêneros combinados? Indique também o total de jogos de cada marca.
-    1. Quais são as três marcas que mais venderam os três gêneros combinados? Indique também o total de vendas de cada marca.
-    1. Qual é a marca com mais publicações em cada um dos gêneros nos últimos dez anos no Japão? Indique também o número total de jogos dela.
-    1. Qual foi a marca que mais vendeu em cada um desses gêneros nos últimos dez anos, no Japão? Indique também o total de vendas dela.
+1. Quais são as três marcas que mais publicaram jogos dos três gêneros combinados? Indique também o total de jogos de cada marca.
+1. Quais são as três marcas que mais venderam os três gêneros combinados? Indique também o total de vendas de cada marca.
+1. Qual é a marca com mais publicações em cada um dos gêneros nos últimos dez anos no Japão? Indique também o número total de jogos dela.
+1. Qual foi a marca que mais vendeu em cada um desses gêneros nos últimos dez anos, no Japão? Indique também o total de vendas dela.
 
 [Resolução](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/questao_01.py)
 
 
 #### 12. Obtenha, usando requests ou urllib, a página [HTML](https://fgopassos.github.io/pagina_exemplo/estadosCentroOeste.html) dentro de seu programa em Python e faça:
-    1. Imprima o conteúdo referente apenas à tabela apresentada na página indicada.
-    1. Escreva um programa que obtenha do usuário uma sigla do estado da região Centro-Oeste e apresenta suas informações correspondentes na tabela. O resultado deve apresentar apenas o conteúdo, sem formatação. Ou seja, as tags não devem aparecer. Não esqueça de checar se a sigla pertence à região.
+1. Imprima o conteúdo referente apenas à tabela apresentada na página indicada.
+1. Escreva um programa que obtenha do usuário uma sigla do estado da região Centro-Oeste e apresenta suas informações correspondentes na tabela. O resultado deve apresentar apenas o conteúdo, sem formatação. Ou seja, as tags não devem aparecer. Não esqueça de checar se a sigla pertence à região.
 
 [Resolução](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/questao_01.py)
 
 
 #### 13. Obtenha, usando requests ou urllib, o conteúdo sobre as PyLadies no [link](http://brasil.pyladies.com/about) e:
-    1. Conte todas as palavras no corpo da página, e indique quais palavras apareceram apenas uma vez.
-    1. Conte quantas vezes apareceu a palavra ladies no conteúdo da página
+
+1. Conte todas as palavras no corpo da página, e indique quais palavras apareceram apenas uma vez.
+1. Conte quantas vezes apareceu a palavra ladies no conteúdo da página
 
 [Resolução](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/questao_01.py)
 
