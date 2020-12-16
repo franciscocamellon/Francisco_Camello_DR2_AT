@@ -7,14 +7,14 @@ Este assessment possui questões que avaliam todas as competências da disciplin
 
 [Resolução](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/questao_01.py)
 
-![gif](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/gifs/questao01.gif)
+![gif](/gifs/questao01.gif)
 
 
 #### 2. Usando o Thonny, escreva um programa em Python que some todos os números pares de 1 até um dado n, inclusive. O dado n deve ser obtido do usuário. No final, escreva o valor do resultado desta soma.
 
 [Resolução](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/questao_02.py)
 
-![gif](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/gifs/questao02.gif)
+![gif](/gifs/questao02.gif)
 
 
 
@@ -23,7 +23,7 @@ Este assessment possui questões que avaliam todas as competências da disciplin
 
 [Resolução](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/questao_03.py)
 
-![gif](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/gifs/questao03.gif)
+![gif](/gifs/questao03.gif)
 
 
 
@@ -33,7 +33,7 @@ Exemplo: se a entrada for [4, 3, 5, 1, 2], o resultado deve ser [2, 1, 5, 3, 4].
 
 [Resolução](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/questao_04.py)
 
-![gif](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/gifs/questao04.gif)
+![gif](/gifs/questao04.gif)
 
 
 
@@ -44,7 +44,7 @@ Exemplo: se a entrada for [4, 3, 5, 1, 2], o resultado deve ser [2, 1, 5, 3, 4].
 
 [Resolução](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/questao_06.py)
 
-![gif](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/gifs/questao06.gif)
+![gif](/gifs/questao06.gif)
 
 
 
@@ -53,7 +53,7 @@ Exemplo: se a entrada for [4, 3, 5, 1, 2], o resultado deve ser [2, 1, 5, 3, 4].
 
 [Resolução](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/questao_07.py)
 
-![gif](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/gifs/questao07.gif)
+![gif](/gifs/questao07.gif)
 
 
 
@@ -62,7 +62,7 @@ Exemplo: se a entrada for [4, 3, 5, 1, 2], o resultado deve ser [2, 1, 5, 3, 4].
 
 [Resolução](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/questao_08.py)
 
-![gif](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/gifs/questao08.gif)
+![gif](/gifs/questao08.gif)
 
 
 
@@ -71,7 +71,7 @@ Exemplo: se a entrada for [4, 3, 5, 1, 2], o resultado deve ser [2, 1, 5, 3, 4].
 
 [Resolução](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/questao_09.py)
 
-![gif](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/gifs/questao09.gif)
+![gif](/gifs/questao09.gif)
 
 
 
@@ -86,7 +86,7 @@ Exemplo: se a entrada for [4, 3, 5, 1, 2], o resultado deve ser [2, 1, 5, 3, 4].
 
 [Resolução](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/questao_10.py)
 
-![gif](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/gifs/questao10.gif)
+![gif](/gifs/questao10.gif)
 
 
 
@@ -100,7 +100,7 @@ Obtenha, dentre os jogos do gênero de ação (Action), tiro (Shooter) e platafo
 
 [Resolução](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/questao_11.py)
 
-![gif](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/gifs/questao11.gif)
+![gif](/gifs/questao11.gif)
 
 
 
@@ -111,7 +111,7 @@ Obtenha, dentre os jogos do gênero de ação (Action), tiro (Shooter) e platafo
 
 [Resolução](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/questao_12.py)
 
-![gif](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/gifs/questao12.gif)
+![gif](/gifs/questao12.gif)
 
 
 
@@ -124,7 +124,7 @@ Obtenha, dentre os jogos do gênero de ação (Action), tiro (Shooter) e platafo
 [Resolução](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/questao_13.py)
 
 
-![gif](https://github.com/franciscocamellon/Francisco_Camello_DR2_AT/gifs/questao13.gif)
+![gif](/gifs/questao13.gif)
 
 
 
